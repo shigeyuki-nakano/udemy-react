@@ -38,15 +38,10 @@ export function Todo() {
     }
 
     function onReturnButtonClick(todo) {
-        const newInCompleteTodos = [...incompleteTodos, todo]
-        if(!todoValidation(todo, newInCompleteTodos)) {
-            return
-        }
-
         const newCompleteTodos = completeTodos
             .filter((completeTodo) => completeTodo !== todo)
         setCompleteTodos(newCompleteTodos)
-        setIncompleteTodos(newInCompleteTodos)
+        setIncompleteTodos((incompleteTodo) => [...incompleteTodo, todo])
     }
 
     return (
